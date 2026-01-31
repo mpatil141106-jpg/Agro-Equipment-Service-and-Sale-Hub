@@ -81,13 +81,6 @@ http://127.0.0.1:8000
 
 ---
 
-## 🙋‍♀️ Author
-
-**Puja Patil**  
-📧 Email: patilpuja1419@gmail.com  
-🌐 GitHub: https://github.com/PiyuG
-
----
 
 ## 🤝 Contributing
 
