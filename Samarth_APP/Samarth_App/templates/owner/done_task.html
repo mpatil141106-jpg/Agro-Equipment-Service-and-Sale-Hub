@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+        .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+        h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+
+#done_task {
+    overflow-x: auto;
+}
+
+#customer_table_Done_task {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#customer_table_Done_task th,
+#customer_table_Done_task td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#customer_table_Done_task th {
+    background-color: #f2f2f2;
+}
+
+#th1 {
+    font-weight: bold;
+    text-align: left;
+}
+
+#td1 {
+    text-align: left;
+}
+
+/* Hover effect for table rows */
+#customer_table_Done_task tr:hover {
+    background-color: #f9f9f9;
+}
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Done Task</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+    <div id="Panel1">
+        <h1>Done Task</h1>
+        <div class="done_task">
+            <table id="customer_table_Done_task">
+                <tr>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Work Type</th>
+                    <th id="th1">Date</th>
+                </tr>
+                {% for i in filter_done %}
+                <tr>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.reason_type }}</td>
+                    <td id="td1">{{ i.date }}</td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+        </div>
+    <script src="script1.js"></script>
+</body>
+</html>

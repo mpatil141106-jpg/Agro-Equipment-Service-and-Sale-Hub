@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    {% include 'owner/head.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="col-div-3">
+			<div class="box" id="b1">
+				<p>{{ co }}<br/><span>Customers</span></p>
+				<i class="fa fa-users box-icon"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b2">
+				<p>{{ app }}<br/><span>Appointment</span></p>
+				<i class="fa fa-calendar"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b3">
+				<p>{{ task }}<br/><span>Total Task</span></p>
+				<i class="fa fa-tasks"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b4">
+				<p>{{ done }}<br/><span>Complete Tasks</span></p>
+				<i class="fa fa-tasks box-icon"></i>
+			</div>
+		</div>
+        <div class="col-div-3">
+			<div class="box" id="b5">
+				<p>{{ inc }}<br/><span>Incomplete Tasks</span></p>
+				<i class="fa fa-tasks box-icon"></i>
+			</div>
+		</div>
+    </div>
+    
+
+    <script src="{% static 'script1.js' %}"></script>
+</body>
+</html>

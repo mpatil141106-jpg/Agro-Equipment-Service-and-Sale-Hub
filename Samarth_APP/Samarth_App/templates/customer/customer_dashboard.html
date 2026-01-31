@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    {% include 'customer/customer_head.html' with me=member.name %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/customer_dashboard_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="customerdashboardMainContainer">
+    </div>
+    <div class="banner">
+		<div class="col-div-3">
+			<div class="box" id="b1">
+				<p>{{ approve }}<br/><span>Approve Appointment</span></p>
+				<i class="fa fa-calendar"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b2">
+				<p>{{ reject }}<br/><span>Rejected Appointment</span></p>
+				<i class="fa fa-calendar"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b3">
+				<p>{{ done }}<br/><span>Done Task</span></p>
+				<i class="fa fa-tasks"></i>
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box" id="b4">
+				<p>{{ incomplete }}<br/><span>Incomplete Tasks</span></p>
+				<i class="fa fa-tasks box-icon"></i>
+			</div>
+		</div>
+    </div>
+
+
+    <script src="{%  static 'customer_script.js' %}"></script>
+</body>
+</html>

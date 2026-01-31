@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<nav class="navbar">
+<img src="{% static 'images/Photo_1704122434224.png' %}" width="120px" class="logo" height="50px">
+<ul class="menu">
+    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home</a></li>
+    <li><a href="{% url 'service' %}"><i class="fa fa-wrench"></i>Service</a></li>
+    <li><a href="{% url 'contact' %}"><i class="fa fa-address-book"></i>Contact_us</a></li>
+    <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i>About_us</a></li>
+</ul>
+
+<ul class="login-menu">
+    <li><a href="{% url 'registration' %}">SignUp</a></li>
+    <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
+
+</ul>
+</nav>
+
+

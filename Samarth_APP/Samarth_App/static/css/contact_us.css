@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+.box{
+    width: 1500px;
+    height: 600px;
+    padding: 50px;
+}
+
+section{
+    height: auto;
+    margin: 5% auto;
+    padding-top: 40;
+    text-align: center;
+    line-height: 25px;
+}
+section h1{
+    font-style: italic;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: left;
+    line-height: 2.0;
+    color: crimson;
+}
+section h2{
+    color: black;
+    font-family: Verdana;
+    font-style: normal;
+    text-align: left;
+    line-height: 1.8;
+
+}

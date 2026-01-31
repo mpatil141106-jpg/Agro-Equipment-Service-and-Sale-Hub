@@ -1,0 +1,225 @@
+{% load static %}
+<div class="dashboard_sidebar">
+    <div class="dashboard_logo">Samarth Electricals</div>
+    <div class="dashboard_user">
+        <img src="{% static 'images/profile_Icon.png' %}" alt="User image"/>
+        <span>Mr. John</span>
+        <hr>
+    </div>
+    <div class="dashboard_navigation">
+        <ul>
+            <li class="menuActive"><a href="{% url 'dashboard' %}"><i class="fa fa-tachometer-alt"></i>Dashboard</a></li>
+            <li class="parent-item"><a><i class="fa fa-user"></i>Customer</a>
+                    <ul>
+                        <li><a href="{% url 'view_customer' %}">View Customer</a></li>
+                        <li><a href="{% url 'manage_customer' %}">Manage Customer</a></li>
+                    </ul>
+            </li>
+            <li class="parent-item"><a><i class="fa fa-cogs"></i>Service</a>
+                <ul>
+                    <li><a href="{% url 'add_service' %}">Add Service</a></li>
+                    <li><a href="{% url 'manage_service' %}">Manage Service</a></li>
+                </ul>
+            </li>
+
+            <li class="parent-item"><a><i class="fa-solid fa-list-check"></i>Tasks</a>
+                <ul>
+                    <li><a href="{% url 'manage_task' %}">Manage Task</a></li>
+                    <li><a href="{% url 'inprogress_task' %}">Inprogress Task</a></li>
+                    <li><a href="{% url 'done_task' %}">Done Task</a></li>
+                </ul>
+            </li>
+            <li class="parent-item"><a><i class="fa fa-calendar"></i>Appointment</a>
+                <ul>
+                    <li><a href="{% url 'appointment_request' %}">Appointment Request</a></li>
+                    <li><a href="{% url 'appointment_history' %}">History</a></li>
+                </ul>
+            </li>
+            <li class="parent-item"><a><i class="fa-solid fa-pen-to-square"></i>Update</a>
+                <ul>
+                    <li><a href="{% url 'payment' %}">Payment</a></li>
+                    <li><a href="{% url 'payment_history' %}">History</a></li>
+                </ul>
+            </li>
+            <li class="parent-item"><a><i class="fa fa-box"></i>Stock</a>
+                <ul>
+                    <li><a href="{% url 'add_stock' %}">Add Stock</a></li>
+                    <li><a href="{% url 'view_stock' %}">View Stock</a></li>
+                    <li><a href="{% url 'order_product' %}">Order Product</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="navbar">
+    <div class="dashboard_topnav">
+        <a href="{% url 'notification_view' %}" id="note"><i class="fa fa-bell"></i>Notifications</a>
+        <a href="{% url 'home' %}" id="logoutBtn"><i class="fa fa-power-off"></i>Logout</a>
+    </div>
+</div>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+.dashboardMainContainer {
+    display: flex;
+}
+
+.dashboard_sidebar {
+    position: fixed;
+    float: left;
+    width: 20%;
+    background:black;
+    height: 100vh;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgb(0,0,0);
+}
+
+.dashboard_logo {
+    color: #f685a1;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.dashboard_user {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard_user img {
+    width: 80px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #f685a1;
+    margin-bottom: 5px;
+}
+
+.dashboard_user span {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.dashboard_navigation ul, .dashboard_navigation ul ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dashboard_navigation ul ul{
+    display: none;
+}
+.dashboard_navigation li:hover > ul{
+    display: block;
+}
+
+.dashboard_navigation li,.dashboard_navigation li li {
+    padding: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #555;
+}
+
+.dashboard_navigation li a, .dashboard_navigation li li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+}
+
+.dashboard_navigation li a i,.dashboard_navigation li li a i {
+    margin-right: 8px;
+}
+
+.dashboard_navigation li.menuActive {
+    background: #f685a1;
+    color: black;
+    transition: 0.3s all;
+}
+
+.dashboard_navigation li:hover,.dashboard_navigation li:hover li:hover {
+    background: #f685a1;
+    color: black;
+    transition: 0.3s all;
+}
+.dashboard_navigation li:hover a,.dashboard_navigation li:hover li:hover{
+    color: black;
+    font-weight: bold;
+}
+.navbar{
+flex: 1;
+position: relative;
+}
+
+.dashboard_topnav {
+    background:black;
+    margin-left: 22%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard_topnav a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+.dashboard_topnav a #note {
+    padding-left: 20%;
+}
+.dashboard_topnav a i{
+    margin-right: 8px;
+}
+.dashboard_topnav #logoutBtn {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+.dashboard_navigation li:hover > a {
+    color: black;
+    font-weight: bold;
+}
+
+.dashboard_navigation li:hover li:hover > a {
+    color: black;
+    font-weight: normal;
+}
+.menuActive {
+    background: #f685a1;
+    color: black;
+    transition: 0.3s all;
+}
+
+.menuActive:hover {
+    background: #f685a1;
+    color: black;
+    transition: 0.3s all;
+}
+
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var parentItems = document.querySelectorAll('.parent-item');
+
+    parentItems.forEach(function(parentItem) {
+        parentItem.addEventListener('click', function() {
+            parentItems.forEach(function(item) {
+                item.classList.remove('menuActive');
+            });
+            parentItem.classList.add('menuActive');
+        });
+    });
+
+    // Remove menuActive class from dashboard link when other links are clicked
+    var dashboardLink = document.querySelector('.menuActive');
+    document.querySelectorAll('.parent-item a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            dashboardLink.classList.remove('menuActive');
+        });
+    });
+});
+
+    </script>

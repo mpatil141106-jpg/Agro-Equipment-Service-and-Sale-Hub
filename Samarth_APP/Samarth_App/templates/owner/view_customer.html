@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+        .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+         h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  .customer-table th,
+  .customer-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .customer-table th {
+    background-color: #f8f9fa;
+  }
+  .profile-image {
+    max-width: 100px;
+    height: auto;
+  }
+
+
+
+/* Hover effect for table rows */
+.customer-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View customer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+      <div id="pannel">
+        <h1>View Customer</h1>
+         <table class="customer-table">
+            <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Email_Id</th>
+            <th>Contact</th>
+            <th>City</th>
+            <th>Gender</th>
+        </tr>
+            </thead>
+            {% for i in all %}
+             <tbody>
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td><img src="{{ i.profile_image.url }}" alt="Profile Image" class="profile-image"></td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.mobileno }}</td>
+            <td>{{ i.city }}</td>
+            <td>{{ i.gender }}</td>
+        </tr>
+        </tbody>
+            {% endfor %}
+        
+    </table>
+    </div>
+</div>
+    </div>
+<script src="script1.js"></script>
+</body>
+</html>

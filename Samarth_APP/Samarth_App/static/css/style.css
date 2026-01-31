@@ -1,0 +1,424 @@
+/*code for dashboard Module*/
+body{
+    margin: 0;
+    padding: 0;
+}
+.banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+.col-div-3{
+    margin-left: 20px;
+    text-align: center;
+	width: 25%;
+	float: left;
+    margin-right: 20px;
+    margin-top: 60px;
+}
+.box{
+	width: 90%;
+	height: 175px;
+	margin-left: 10px;
+	padding:10px;
+    border-style: solid;
+    border-width: medium;
+    box-shadow: 10px 10px gray;
+    box-shadow: black;
+}
+#b1{
+    background: orangered;
+}
+#b2{
+    background: palevioletred;
+}
+#b3{
+    background: yellowgreen;
+}
+#b4{
+    background: blueviolet;
+}
+#b5{
+    background: orchid;
+}
+.box p{
+	 font-size: 35px;
+    color: black;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.box p span{
+	font-size: 30px;
+	font-weight: 400;
+	color: black;
+}
+.dash_topnav{
+    background: rgba(0, 0, 0, 0.89);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.dash_topnav a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 20px;
+    display: block;
+    width: 200px;
+}
+.dash_topnav a:hover{
+    color:palevioletred;
+    font-weight: bold;
+}
+
+/* It code for the panne1 and Panel2. pannel1 used to display the panel for the view_customer and Panel2 used for manage_customer*/
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+#pannel h1,#Panel1 h1,#Panel2 h1{
+    position: absolute;
+    padding: 0;
+    color: orange;
+}
+/*code for view customer panel*/
+.view_customer{
+    max-width: 500px;
+    margin: 80px;
+    padding: 20px;
+}
+#customer_table, #td1, #th1{
+    border: 1px solid;
+}
+#th1{
+    background: gray;
+    font-size: larger;
+    font-weight: bold;
+}
+#customer_table{
+    margin-top: 70px;
+    width: 100%;
+    border-collapse: collapse;
+}
+/*Design for Manage_Task Module in Task module for task table*/
+#customer_table_Manage_task,#customer_table_inProgress_task,#customer_table_Done_task,
+#appointment_request_table,#appointment_history_table,#history_of_payment{
+    margin-top: 70px;
+    width: 70%;
+    border-collapse: collapse;
+}
+/*code for manage customer panel*/
+.manage_customer_container,._make_payment{
+    max-width: 500px;
+    margin: 80px;
+    padding: 20px;
+}
+.manage_customer_container label,._make_payment label{
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+}
+.manage_customer_container input,
+.manage_customer_container select,
+._make_payment input,._make_payment select{
+    width: 250px;
+    height: 10;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border-style:groove;
+}
+/*code for submit,delete and search btn*/
+#submit, #delete, #search{
+    color: black;
+    background-color: green;
+    width: 200px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+#submit:hover, #delete:hover, #search:hover,#submit_payment{
+    background-image: linear-gradient(to right, rgb(17, 251, 17), rgb(10, 89, 10));
+}
+.add_service, .manage_service{
+    max-width: 500px;
+    margin-top: 80px;
+    height: 370px;
+    padding: 30px;
+}
+.add_service label , .manage_service label{
+    position: relative;
+    padding: 20px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.add_service input, .manage_service input{
+    width: 350px;
+    height: 10;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border-style:groove;
+}
+#add_service,#delete_service{
+    color: black;
+    background-color: green;
+    width: 200px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80%;
+}
+
+#add_service:hover,#service_type:hover,#delete_service:hover,#service_type_delete:hover{
+    background-image: linear-gradient(to right, rgb(11, 243, 11), rgb(10, 89, 10));
+}
+#service_type,#service_type_delete,#search_id{
+    color: black;
+    background-color: green;
+    width: 100px;
+    height: 30px;
+    font-family: serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+#inProgress_btn,#done_btn{
+    border-style: groove;
+    box-shadow:5px 5px gray;
+    background-color: brown;
+    width: 150px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80%;
+    margin-top: 80px;
+    position: center;
+}
+#inProgress_btn:hover,#done_btn:hover{
+    background-image: linear-gradient(to right, rgb(200, 113, 113),rgb(126, 38, 97));
+}
+#approve_btn,#reject_btn{
+    border-style: groove;
+    box-shadow:5px 5px gray;
+    background-color: rgb(52, 165, 42);
+    width: 150px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30%;
+}
+#approve_btn:hover,#reject_btn:hover{
+    background-image: linear-gradient(to right, rgb(53, 160, 26),rgb(58, 196, 34));
+}
+._make_payment_panel{
+    margin-top: 15%;
+}
+#_make_payment_table{
+    margin-top: 70px;
+    width: 80%;
+    border-collapse: collapse;
+    font-size: larger;
+    font-weight: bold;
+}
+#submit_payment{
+    color: black;
+    background-color: green;
+    width: 200px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80%;
+}
+.popup{
+    background: rgba(0,0,0,0.6);
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.popup_container{
+    height: 250px;
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+.popup input{
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+}
+.sub_button{
+    background: white;
+    padding: 10px 15px;
+    color: #34495e;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+    margin-top: 25px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.sub_button:hover{
+    background: #34495e;
+    color: white;
+}
+.close{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+/*stock*/
+.box1{
+    width: 1200px;
+    height: 80%;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+.box1 .container1{
+    left: 30%;
+    max-width: 850px;
+    height: 400px;
+    width: 800px;
+    padding: 25px;
+    margin: 10px 310px;
+    box-shadow: 0 15px 20px #abb2b9;
+    margin-top: 7%;
+    margin-left: 17%;
+}
+h2{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    color: #2f4f4f;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver ;
+}
+.box1 .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.input-box1{
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    padding-bottom: 15px;
+}
+.input-box1:nth-child(2n){
+    justify-content: end;
+}
+.input-box1 label{
+    width: 95%;
+    color: #2f4f4f;
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: left;
+}
+.input-box1 input,textarea{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box1 input:is,textarea:is(:focus, :valid)
+{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.button-container{
+    margin: 15px 0;
+}
+.button-container button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b,#61045f);
+}
+.button-container button:hover{
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+}
+.selection{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.selection input{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.selection label{
+    width: 95%;
+    color: #2f4f4f;
+    font-weight: bold;
+    margin: 5px 0;
+}
+@media(max-width:600px){
+    .container{
+        min-width: 280px;
+    }
+    .content{
+        max-height: 380px;
+        overflow: auto;
+    }
+    .input-box{
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .input-box:nth-child(2n){
+        justify-content: space-between;
+    }
+    .selection{
+        margin-bottom:12px ;
+        width: 100%;
+    }
+
+}
+select{
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}

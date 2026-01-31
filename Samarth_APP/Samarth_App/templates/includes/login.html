@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    {% include 'includes/footer.html' %}
+    {% include 'includes/headerAndFooter.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Shree Samarth Electricals</title>
+</head>
+<body>
+    <div class="outerContainer">
+        <form action="{% url 'doLogin' %}" method="post">
+            {% csrf_token %}
+            <h1>Get Started</h1>
+            <div class="container">
+                <input type="text" placeholder="Enter Email or Mobile Number" name="email" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit" id="login-btn">Login</button>
+                <a href="#" id="forget-psw">Forget Password?</a>
+            </div>
+            <div class="member">
+                <h1>Don't have Account: </h1>
+                <a href="{% url 'registration' %}" id="register">SingUp</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

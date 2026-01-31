@@ -1,0 +1,34 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    padding: 20px 28px;
+    font-weight: 700;
+    font-size: larger;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.navbar ul{
+   list-style: none;
+}
+.navbar .menu, .navbar .login-menu{
+display: flex;
+}
+.navbar .menu li, .navbar .login-menu li{
+   margin-right: 38px;
+   text-decoration: none;
+}
+.navbar .menu li a,.navbar .login-menu li a{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all;
+}
+.navbar ul a:hover{
+color: crimson;
+background-color: white;
+border-radius:15px;
+}

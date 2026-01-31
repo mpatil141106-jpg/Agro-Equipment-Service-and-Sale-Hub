@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="dash_topnav">
+            <a href="#" onclick="AppointmentRequest()">Appointment Request</a>
+            <a href="#" onclick="AppointmentHistory()">History</a>
+        </div>
+        
+
+    <div id="pannel">
+        <h1>Appointment</h1>
+        <div class="appointment_request">
+            <table id="appointment_request_table">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Work_Type</th>
+                    <th id="th1">Time</th>
+                    <th id="th1">Date</th>
+                    <th id="th1"></th>
+
+                </tr>
+                {% for i in all %}
+                <tr>
+                    <td id="td1">{{ i.appointment_id }}</td>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.reason_type }}</td>
+                    <td id="td1">{{ i.time }}</td>
+                    <td id="td1">{{ i.date }}</td>
+                    <td id="td1"><input type="submit" value="Approve" id="approve_btn" onclick="location.href='{% url 'update_status' i.appointment_id %}'"></td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+
+        <input type="submit" value="Reject" id="reject_btn">
+        <div class="popup">
+            <div class="popup_container">
+                <a href="#" class="close"><i class="fa-window-close"></i></a>
+                <input type="text" placeholder="Reason">
+                <a href="#" class="sub_button">Submit</a>
+            </div>
+        </div>
+    </div>
+    <div id="Panel1">
+        <h1>History</h1>
+        <div class="appointment_history">
+            <table id="appointment_history_table">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Status</th>
+                    <th id="th1">Reason</th>
+                </tr>
+                {% for i in filter %}
+                <tr>
+                    <td id="td1">{{ i.appointment_id }}</td>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.status }}</td>
+                    <td id="td1">No time shcedule available</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </div>
+    </div>
+    <script>
+        function AppointmentRequest() {
+            document.getElementById("pannel").style.display = "block";
+            document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+        }
+        function AppointmentHistory() {
+            document.getElementById("Panel1").style.display = "block";
+            document.getElementById("pannel").style.display = "none"; // hide view customer section
+        }
+        document.getElementById("reject_btn").addEventListener("click",function(){
+            document.querySelector(".popup").style.display="flex";
+        })
+        document.querySelector(".close").addEventListener("click",function(){
+            document.querySelector(".popup").style.display="none";
+        })
+        document.querySelector(".sub_button").addEventListener("click",function(){
+            document.querySelector(".popup").style.display="none";
+        })
+
+    </script>
+</body>
+</html>

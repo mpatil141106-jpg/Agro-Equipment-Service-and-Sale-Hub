@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'customer/customer_head.html' %}
+    <style>
+        select{
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/customer_dashboard_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="customerdashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="dash_topnav">
+            <a href="#" onclick="AppointmentRequest()">Appointment Request</a>
+            <a href="#" onclick="AppointmentHistory()">History</a>
+        </div>
+
+
+    <div id="pannel">
+        <h1>Appointment</h1>
+            <div class="appointment_request">
+                <form action="{% url 'make_appointment' %}" method="post">
+                    {% csrf_token %}
+                <table>
+                    <tr id="appointment_tr">
+                        <td id="appointment">
+                            <label for="reason">Work: </label>
+                        </td>
+                        <td id="appointment">
+                            <select id="workSelect" name="work" readonly>
+                                <option value="">--Choose Service--</option>
+                                    {% for work in all %}
+                                        <option value="{{ work.work }}">{{ work.work }}</option>
+                                    {% endfor %}
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr id="appointment_tr">
+                        <td id="appointment">
+                            <label for="reason">Type: </label>
+                        </td>
+                        <td id="appointment">
+                            <select id="typeSelect" name="type" readonly>
+                                <option value="">--Choose Type--</option>
+                                </select>
+                        </td>
+                    </tr>
+                    <tr id="appointment_tr">
+                        <td id="appointment">
+                            <label for="type">Date: </label>
+                        </td>
+                        <td id="appointment">
+                            <input type="date" id="input-box" name="date">
+                        </td>
+                    </tr>
+                    <tr id="appointment_tr">
+                        <td id="appointment">
+                            <label for="time">Time: </label>
+                        </td>
+                        <td id="appointment">
+                            <input type="text" id="input-box" placeholder="Enter the Time" name="time">
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="Submit" id="approve_btn">
+            </form>
+        </div>
+
+    </div>
+    <div id="Panel1">
+        <h1>History</h1>
+        <div class="appointment_history">
+            <div id="appointment_history">
+            <table id="appointment_history_table">
+                <tr id="history_table">
+                    <th id="th1">Appointment Id</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Work Type</th>
+                    <th id="th1">Status</th>
+                    <th id="th1">Reason</th>
+                </tr>
+                {% for i in filter %}
+                <tr id="history_table">
+                    <td id="td1">{{ i.appointment_id }}</td>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.reason_type }}</td>
+                    <td id="td1">{{ i.status }}</td>
+                    <td id="td1">{{ i }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById('workSelect').addEventListener('change', function()
+        {
+            var selectedWork = this.value;
+            var typeSelect = document.getElementById('typeSelect');
+
+            fetch(`/get_work_types?work=${selectedWork}`)
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing options
+                typeSelect.innerHTML = '';
+
+                // Populate with new options
+                data.forEach(type => {
+                    var option = document.createElement('option');
+                    option.text = type;
+                    option.value = type;
+                    typeSelect.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function AppointmentRequest() {
+            document.getElementById("pannel").style.display = "block";
+            document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+        }
+        function AppointmentHistory() {
+            document.getElementById("Panel1").style.display = "block";
+            document.getElementById("pannel").style.display = "none"; // hide view customer section
+        }
+
+        document.getElementById("reject_btn").addEventListener("click",function(){
+            document.querySelector(".popup").style.display="flex";
+        })
+        document.querySelector(".close").addEventListener("click",function(){
+            document.querySelector(".popup").style.display="none";
+        })
+        document.querySelector(".sub_button").addEventListener("click",function()
+        {
+            document.querySelector(".popup").style.display="none";
+        })
+
+    </script>
+</body>
+</html>

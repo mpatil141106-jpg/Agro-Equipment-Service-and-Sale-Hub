@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'customer/customer_head.html' %}
+    <style>
+         .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+        .appointment_history
+        {
+            overflow-x: auto;
+        }
+
+        #appointment_history_table
+        {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #appointment_history_table th,
+        #appointment_history_table td
+        {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #appointment_history_table th
+        {
+            background-color: #f2f2f2;
+        }
+
+        #th1
+        {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        #td1
+        {
+            text-align: left;
+        }
+
+        /* Hover effect for table rows */
+        #appointment_history_table tr:hover
+        {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Appointment History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+    <div id="Panel1">
+        <h1>Appointment History</h1>
+        <div id="appointment_history">
+            <table id="appointment_history_table">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Work Type</th>
+                    <th id="th1">Date</th>
+                    <th id="th1">Status</th>
+                </tr>
+                {% for i in all %}
+                <tr>
+                    <td id="td1">{{ i.appointment_id }}</td>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.reason_type }}</td>
+                     <td id="td1">{{ i.date }}</td>
+                    <td id="td1">{{ i.status }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

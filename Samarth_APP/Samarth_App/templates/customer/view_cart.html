@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'customer/customer_head.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <style>
+      .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+      .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        .product-details {
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .quantity-selector {
+            margin-bottom: 10px;
+        }
+
+        .order-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .order-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add Animation to Products */
+        .product {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        /* Delay Animation for Each Product */
+        .product:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+        .product:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+  </style>
+</head>
+<body>
+<div class="dashboardMainContainer">
+</div>
+<div class="banner">
+    <div id="Panel1">
+        <h1>View cart</h1>
+
+        <div class="container">
+        <!-- Example Product 1 -->
+            {% for product in products %}
+            <form method="POST" action="{% url 'place_order' %}">
+    {% csrf_token %}
+        <div class="product">
+            <img src="{{ product.img.url }}" alt="Product Image">
+            <div class="product-details">
+                <div class="product-name">{{ product.name }}</div>
+                <div class="product-price">{{ product.price }}</div>
+                <div class="product-description">{{ product.description }}</div>
+                <div class="quantity-selector">
+                    <input type="hidden" name="id" value="{{ product.id }}" min="1">
+                    Quantity: <input type="number" name="quantity" value="1" min="1">
+                </div>
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+            </form>
+            {% endfor %}
+        </div>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        #done{
+        height:20px;
+        width:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="dash_topnav">
+            <a href="#" onclick="myFunction()">Manage Task</a>
+            <a href="#" onclick="manageCustomer()">Done Task</a>
+            <a href="#" onclick="inProgress()">In-Progress Task</a>
+
+        </div>
+        
+
+    <div id="pannel">
+        <h1>Manage Task</h1>
+        <div class="view_customer_Manage_task">
+            <table id="customer_table_Manage_task">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Work Type</th>
+                    <th id="th1">Date</th>
+                    <th id="th1">Inprogress</th>
+                    <th id="th1">Done</th>
+                </tr>
+                {% for i in filter %}
+                <tr>
+                    <td id="td1">{{ i.appointment_id }}</td>
+                    <td id="td1">{{ i.name }}</td>
+                    <td id="td1">{{ i.reason }}</td>
+                    <td id="td1">{{ i.reason_type }}</td>
+                    <td id="td1">{{ i.date }}</td>
+                    <td id="td1"><input type="submit" value="InProgress" id="inProgress" onclick="location.href='{% url 'update_inprogress' i.appointment_id %}'"></td>
+                    <td id="td1"><input type="submit" value="Done" id="done" onclick="location.href='{% url 'update_done' i.appointment_id %}'"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+    </div>
+    <div id="Panel1">
+        <h1>Done Task</h1>
+        <div class="done_task">
+            <table id="customer_table_Done_task">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Reason</th>
+                    <th id="th1">Date</th>
+                </tr>
+                <tr>
+                    <td id="td1">1</td>
+                    <td id="td1">Ramesh chaudhari</td>
+                    <td id="td1">Winding</td>
+                    <td id="td1">07/02/24</td>
+                </tr>
+                
+            </table>
+        </div>
+        </div>
+    <div id="Panel2">
+        <h1>In-Progress Task</h1>
+        <div class="inProgress_task">
+            <table id="customer_table_inProgress_task">
+                <tr>
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Reason</th>
+                    <th id="th1">Date</th>
+                </tr>
+                <tr>
+                    <td id="td1">1</td>
+                    <td id="td1">Ramesh chaudhari</td>
+                    <td id="td1">Winding</td>
+                    <td id="td1">07/02/24</td>
+                </tr>
+                
+            </table>
+        </div>
+        </div>
+    </div>
+    <script>
+    function myFunction() {
+        document.getElementById("pannel").style.display = "block";
+        document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+        document.getElementById("Panel2").style.display = "none";
+    }
+
+    function manageCustomer() {
+        document.getElementById("Panel1").style.display = "block";
+        document.getElementById("pannel").style.display = "none"; // hide view customer section
+        document.getElementById("Panel2").style.display = "none";
+    }
+    function inProgress(){
+        document.getElementById("Panel2").style.display = "block";
+        document.getElementById("pannel").style.display = "none"; // hide view customer section
+        document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+    }
+        </script>
+</body>
+</html>

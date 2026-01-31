@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+         .box_form form{
+            width: 700px;
+            height: 450px;
+            padding-top: 2%;
+            margin-left:20%;
+            margin-top:5%;
+            border: 3px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 12px 20px #abb289;
+            overflow: hidden;
+        }
+        .button-container{
+            margin: 15px 0;
+        }
+        .button-container button{
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #aa076b,#61045f);
+        }
+        .button-container button:hover{
+            background-image: linear-gradient(to right, #61045f, #aa076b);
+        }
+        select{
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .box1 .container1{
+            left: 30%;
+            max-width: 850px;
+            height: 400px;
+            width: 800px;
+            padding: 25px;
+            margin: 10px 310px;
+            box-shadow: 0 15px 20px #abb2b9;
+            margin-top: 7%;
+            margin-left: 17%;
+        }
+        h2{
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            color: #2f4f4f;
+            padding-bottom: 8px;
+            border-bottom: 1px solid silver ;
+        }
+        .box1 .content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .input-box1{
+            display: flex;
+            flex-wrap: wrap;
+            width: 49%;
+            padding-bottom: 15px;
+        }
+        .input-box1:nth-child(2n){
+            justify-content: end;
+        }
+        .input-box1 label{
+            width: 95%;
+            color: #2f4f4f;
+            font-weight: bold;
+            margin: 5px 0;
+            text-align: left;
+        }
+        .input-box1 input,textarea{
+            height: 40px;
+            width: 95%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .input-box1 input:is,textarea:is(:focus, :valid)
+        {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .button-container{
+            margin: 15px 0;
+        }
+        .button-container button{
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #aa076b,#61045f);
+        }
+        .button-container button:hover{
+            background-image: linear-gradient(to right, #61045f, #aa076b);
+        }
+        .selection{
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            padding-bottom: 15px;
+        }
+        .selection input{
+            height: 40px;
+            width: 95%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .selection label{
+            width: 95%;
+            color: #2f4f4f;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        @media(max-width:600px){
+            .container{
+                min-width: 280px;
+            }
+            .content{
+                max-height: 380px;
+                overflow: auto;
+            }
+            .input-box{
+                margin-bottom: 12px;
+                width: 100%;
+            }
+            .input-box:nth-child(2n){
+                justify-content: space-between;
+            }
+            .selection{
+                margin-bottom:12px ;
+                width: 100%;
+            }
+        }
+        select{
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="dash_topnav">
+            <a href="#" onclick="myFunction()">Add Service</a>
+            <a href="#" onclick="manageCustomer()">Manage Service</a>
+        </div>
+        
+
+    <div id="pannel">
+        <h1>Add Service</h1>
+        <div class="box1">
+            <div class="container1">
+                <form action="{% url 'addService' %}" method="post">
+                    {% csrf_token %}
+                    <h2>Add Service</h2>
+                    <div class="content">
+                        <div class="input-box1">
+                            <label for="service_name">Service</label>
+                            <input type="text" name="service" id="input-box" required>
+                            <input type="submit" id="service_type" value="Type" onclick="viewInputAdd()">
+                        </div>
+                        <div class="input-box1">
+                            <label for="service_type">Service Type</label>
+                            <input type="text" name="service_type" id="input-box_type_add" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="price">Price</label>
+                            <input type="text" name="service_price" id="input-box_price_add" required>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                            <button type="submit">Add</button>
+                    </div>
+                </form>
+                 {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                    {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div id="popup" style="display: none;">
+        <!-- Popup window content -->
+        <h2>Work Type Already Exists</h2>
+        <p>The work type you entered already exists in the database.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+            </div>
+    </div>
+    <div id="Panel1">
+        <h1>Manage Service</h1>
+        <div class="box1">
+            <div class="container1">
+                <form action="{% url 'delete_service' %}" method="post">
+                    {% csrf_token %}
+                    <h2>Manage Service</h2>
+                    <div class="content">
+                        <div class="input-box1">
+
+                            <label for="service">Service: </label>
+                            <select id="workSelect" name="work" onchange="workField()" readonly>
+                                        <option value="">--Choose Service--</option>
+                                    {% for work in all %}
+                                        <option value="{{ work.work }}">{{ work.work }}</option>
+                                    {% endfor %}
+                            </select>
+
+
+                        </div>
+                        <div class="input-box1">
+                            <label for="service_type">Type: </label>
+                            <select id="typeSelect" name="type" readonly>
+
+                            </select>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit">Delete</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <script>
+
+
+    function myFunction() {
+        document.getElementById("pannel").style.display = "block";
+        document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+    }
+
+    function manageCustomer() {
+        document.getElementById("Panel1").style.display = "block";
+        document.getElementById("pannel").style.display = "none"; // hide view customer section
+    }
+    function viewInputAdd(){
+        document.getElementById("input-box_type_add").disabled = false;
+    }
+
+    document.getElementById('workSelect').addEventListener('change', function() {
+            var selectedWork = this.value;
+            var typeSelect = document.getElementById('typeSelect');
+
+            fetch(`/get_work_types?work=${selectedWork}`)
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing options
+                typeSelect.innerHTML = '';
+
+                // Populate with new options
+                data.forEach(type => {
+                    var option = document.createElement('option');
+                    option.text = type;
+                    option.value = type;
+                    typeSelect.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        //error popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Function to close the popup window
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Check if an error occurred (e.g., work type already exists) and show the popup
+        {% if error %}
+            showPopup();
+        {% endif %}
+
+        </script>
+</body>
+</html>

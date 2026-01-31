@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+        .box_form form{
+            width: 650px;
+            height: 500px;
+            padding-top: 4%;
+            margin-left:20%;
+            margin-top:7%;
+            border: 3px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 12px 20px #abb289;
+            overflow: hidden;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div class="dash_topnav">
+            <a href="#" onclick="myFunction()">View Customer</a>
+            <a href="#" onclick="manageCustomer()">Manage Customer</a>
+        </div>
+        
+
+    <div id="pannel">
+        <h1>View Customer</h1>
+        <div id="view_customer">
+        <table id="customer_table">
+        <tr>
+            <th id="th1">Id</th>
+            <th id="th1">Name</th>
+            <th id="th1">Email</th>
+            <th id="th1">Mobile Number</th>
+            <th id="th1">City</th>
+            <th id="th1">Gender</th>
+        </tr>
+            {% for item in all %}
+        <tr>
+            <td id="td1">{{item.id}}</td>
+            <td id="td1">{{item.name}}</td>
+            <td id="td1">{{item.email}}</td>
+            <td id="td1">{{item.mobileno}}</td>
+            <td id="td1">{{item.city}}</td>
+            <td id="td1">{{item.gender}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+    <div id="Panel1">
+        <h1>Manage Customer</h1>
+
+        <div class="box_form">
+            <form>
+        <div class="manage_customer_container">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="input-box"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email</label>
+                    </td>
+                    <td>
+                        <input type="email" id="input-box"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="mobNo.">Mob. No.</label>
+                    </td>
+                    <td>
+                        <input type="tel" id="input-box"><br>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City</label>
+                    </td>
+                    <td>
+                        <input list="city">
+                            <datalist id="city" id="input-box">
+                            <option value="Chinawal">
+                            <option value="Kumbharkheda">
+                            <option value="Lohara">
+                            <option value="Gaurkheda">
+                            <option value="Utakheda">
+                            <option value="Padalsa">
+                            <option value="Dasnur">
+                            <option value="Kasva">
+                            <option value="Razoda">
+                            </datalist><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id">ID</label>
+                    </td>
+                    <td>
+                        <input type="number" id="input-box"><br>
+                    </td>
+                </tr>
+           </table>
+        </div>
+        <input type="submit" value="Search" id="search">
+        <input type="submit" value="Update" id="submit">
+        <input type="submit" value="Delete" id="delete">
+    </form>
+        </div>
+
+</div>
+
+    <script>
+        function myFunction()
+        {
+            document.getElementById("pannel").style.display = "block";
+            document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+        }
+
+        function manageCustomer()
+        {
+            document.getElementById("Panel1").style.display = "block";
+            document.getElementById("pannel").style.display = "none"; // hide view customer section
+        }
+    </script>
+</body>
+</html>

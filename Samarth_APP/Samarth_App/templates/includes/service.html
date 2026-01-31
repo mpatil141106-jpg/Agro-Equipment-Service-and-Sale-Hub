@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'includes/footer.html' %}
+    {% include 'includes/headerAndFooter.html' %}
+    <link rel="stylesheet" href="{% static 'css/service.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Shree Samarth Electricals</title>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+
+<div class="box">
+    <section class="sec1">
+    <h1><i class="fa-solid fa-user"></i> Services:</h1>
+    <div class="info">
+        <table class="center">
+            <tr>
+                <td>
+                    <img class="img1" src="{% static 'images/repairing.jpg' %}" width="500" height="400">
+                </td>
+                <td>
+                    <h2>Repairing Pump</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Maintenance</h2>
+                </td>
+                <td>
+                    <img class="img1" src="{% static 'images/maintenance.png' %}" width="500" height="400">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="img1" src="{% static 'images/starter.jpg' %}" width="500" height="400">
+                </td>
+                <td>
+                    <h2>Starter Reparing</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Winding</h2>
+                </td>
+                <td>
+                    <img class="img1" src="{% static 'images/winding.jpg' %}" width="500" height="400">
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</section>
+</div>
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

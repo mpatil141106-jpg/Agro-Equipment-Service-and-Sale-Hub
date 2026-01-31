@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service</title>
+    <style>
+        .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+
+
+        .box1{
+    width: 1200px;
+    height: 80%;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+.box1 .container1{
+    left: 30%;
+    max-width: 850px;
+    height: 400px;
+    width: 800px;
+    padding: 25px;
+    margin: 10px 310px;
+    box-shadow: 0 15px 20px #abb2b9;
+    margin-top: 7%;
+    margin-left: 17%;
+}
+h2{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    color: #2f4f4f;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver ;
+}
+.box1 .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.input-box1{
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    padding-bottom: 15px;
+}
+.input-box1:nth-child(2n){
+    justify-content: end;
+}
+.input-box1 label{
+    width: 95%;
+    color: #2f4f4f;
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: left;
+}
+.input-box1 input,textarea{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box1 input:is,textarea:is(:focus, :valid)
+{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.button-container{
+    margin: 15px 0;
+}
+.button-container button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b,#61045f);
+}
+.button-container button:hover{
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+}
+        #service_type{
+    color: black;
+    background-color: green;
+    width: 100px;
+    height: 30px;
+    font-family: serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+    <div id="Panel1">
+        <h1>Add Service</h1>
+        <div class="box1">
+            <div class="container1">
+                <form action="{% url 'addService' %}" method="post">
+                    {% csrf_token %}
+                    <h2>Add Service</h2>
+                    <div class="content">
+                        <div class="input-box1">
+                            <label for="product_name">Service</label>
+                            <input type="text" name="service" id="input-box" required>
+                            <input type="submit" id="service_type" value="Type" onclick="viewInputAdd()">
+                        </div>
+                        <div class="input-box1">
+                            <label for="product_price">Service Type</label>
+                            <input type="text" name="service_type" id="input-box_type_add" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="discription">Price</label>
+                            <input type="text" name="service_price" id="input-box_price_add" required>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                            <button type="submit">Add</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+    </div>
+    </div>
+<script src="{% static 'script1.js' %}"></script>
+<script>
+    function viewInputAdd(){
+        document.getElementById("input-box_type_add").disabled = false;
+    }
+</script>
+</body>
+</html>

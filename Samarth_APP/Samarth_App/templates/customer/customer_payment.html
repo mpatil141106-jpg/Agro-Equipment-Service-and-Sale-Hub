@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'customer/customer_head.html' %}
+    <style>
+        .banner h1{
+            color: orange;
+            text-align: left;
+            padding-left: 1%;
+            position: absolute;
+        }
+        .payment_history{
+            position: absolute;
+            width: 70%;
+            top:20%;
+            left: 60%;
+            transform: translate(-50%,-50%);
+        }
+        .payment_history #payment_history{
+            width: auto;
+            height: auto;
+            border: 3px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 12px 20px #abb289;
+            overflow: hidden;
+        }
+        #payment_history_table{
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        #payment_history_table #history_table{
+            width: 500px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/customer_dashboard_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="customerdashboardMainContainer">
+    </div>
+    <div class="banner">
+        <h1>History</h1>
+        <div class="payment_history">
+            <div id="payment_history">
+            <table id="payment_history_table">
+                <tr id="history_table">
+                    <th id="th1">Sr. No.</th>
+                    <th id="th1">Name</th>
+                    <th id="th1">Work</th>
+                    <th id="th1">Status</th>
+                    <th id="th1">Reason</th>
+                </tr>
+                <tr id="history_table">
+                    <td id="td1">1</td>
+                    <td id="td1">Ramesh chaudhari</td>
+                    <td id="td1">Winding</td>
+                    <td id="td1">Reject</td>
+                    <td id="td1">No time shcedule available</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="customer_script.js"></script>
+
+</body>
+</html>

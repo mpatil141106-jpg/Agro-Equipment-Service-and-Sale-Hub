@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+       .search_box{
+            height: 50px;
+            width: 80%;
+            margin-left: 10%;
+        }
+        td{
+            width: 400px;
+        }
+        .search_box #search{
+            width: 80px;
+        }
+        .sdearch_box #appn_id{
+            width: 250px;
+            padding: 30px;
+            border: 1px solid black;
+            outline: black;
+        }
+        .box1 .container1{
+            left: 30%;
+            max-width: 850px;
+            height: 400px;
+            width: 800px;
+            padding: 25px;
+            margin: 10px 310px;
+            box-shadow: 0 15px 20px #abb2b9;
+            margin-top: 7%;
+            margin-left: 17%;
+        }
+        h2{
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            color: #2f4f4f;
+            padding-bottom: 8px;
+            border-bottom: 1px solid silver ;
+        }
+        .box1 .content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .input-box1{
+            display: flex;
+            flex-wrap: wrap;
+            width: 49%;
+            padding-bottom: 15px;
+        }
+        .input-box1:nth-child(2n){
+            justify-content: end;
+        }
+        .input-box1 label{
+            width: 95%;
+            color: #2f4f4f;
+            font-weight: bold;
+            margin: 5px 0;
+            text-align: left;
+        }
+        .input-box1 input,textarea{
+            height: 40px;
+            width: 95%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .input-box1 input:is,textarea:is(:focus, :valid)
+        {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .button-container{
+            margin: 15px 0;
+        }
+        .button-container button{
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #aa076b,#61045f);
+        }
+        .button-container button:hover{
+            background-image: linear-gradient(to right, #61045f, #aa076b);
+        }
+        .selection{
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            padding-bottom: 15px;
+        }
+        .selection input{
+            height: 40px;
+            width: 95%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .selection label{
+            width: 95%;
+            color: #2f4f4f;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        @media(max-width:600px){
+            .container{
+                min-width: 280px;
+            }
+            .content{
+                max-height: 380px;
+                overflow: auto;
+            }
+            .input-box{
+                margin-bottom: 12px;
+                width: 100%;
+            }
+            .input-box:nth-child(2n){
+                justify-content: space-between;
+            }
+            .selection{
+                margin-bottom:12px ;
+                width: 100%;
+            }
+        }
+        select{
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <body>
+        <div class="dashboardMainContainer">
+        </div>
+        <div class="banner">
+            <div class="dash_topnav">
+                <a href="#" onclick="makePayment()">Payment</a>
+                <a href="#" onclick="paymentHistory()">History</a>
+            </div>
+            
+    
+        <div id="pannel">
+            <h1>Payment History</h1>
+            <div id="_payment_history">
+            <table id="history_of_payment">
+            <tr>
+                <th id="th1">Sr. No.</th>
+                <th id="th1">Name</th>
+                <th id="th1">Work</th>
+                <th id="th1">Total Payment</th>
+                <th id="th1">Paid</th>
+                <th id="th1">Due Payment</th>
+
+            </tr>
+            <tr>
+                <td id="td1">1</td>
+                <td id="td1">Ramesh chaudhari</td>
+                <td id="td1">Winding</td>
+                <td id="td1">7000</td>
+                <td id="td1">5000</td>
+                <td id="td1">2000</td>
+            </tr>
+            
+        </table>
+        </div>
+    </div>
+        <div id="Panel1">
+            <h1>Payment</h1>
+             <div class="box1">
+            <div class="container1">
+                <form action="" method="post">
+                    <h2>Add Payment</h2>
+                    <div class="content">
+                        <div class="input-box1">
+                            <label for="name">Name</label>
+                            <input type="text" name="service" id="input-name" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="work">Service</label>
+                            <input type="text" name="service" id="work" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="type">Type</label>
+                            <input type="text" name="service_type" id="type" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="Payment">Payment</label>
+                            <input type="text" name="total_payment" id="Payment" disabled required>
+                        </div>
+                        <div class="input-box1">
+                            <label for="pay_payment">Pay Payment</label>
+                            <input type="text" name="pay_payment" id="pay_payment" required>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                            <button type="submit">Payment</button>
+                    </div>
+                </form>
+                </div>
+                <div class="search_box">
+                    <div class="input-box1">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="Id">Appointment_Id</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="appn_id" id="appn_id" required>
+                                </td>
+                                <td>
+                                    <input type="submit" value="search" id="search" onclick="location.href='{% url 'update_payment' %}'">
+                                </td>
+                    </tr>
+                    </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+        <script>
+        function paymentHistory() {
+            document.getElementById("pannel").style.display = "block";
+            document.getElementById("Panel1").style.display = "none"; // hide manage customer section
+        }
+    
+        function makePayment() {
+            document.getElementById("Panel1").style.display = "block";
+            document.getElementById("pannel").style.display = "none"; // hide view customer section
+        }
+            </script>
+</body>
+</html>

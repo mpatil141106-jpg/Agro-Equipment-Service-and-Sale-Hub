@@ -1,0 +1,276 @@
+/*code for dashboard Module*/
+body{
+    margin: 0;
+    padding: 0;
+}
+.banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+.col-div-3{
+    margin-left: 20px;
+    text-align: center;
+	width: 25%;
+	float: left;
+    margin-right: 20px;
+    margin-top: 60px;
+}
+.box{
+	width: 90%;
+	height: 175px;
+	margin-left: 10px;
+	padding:10px;
+    border-style: solid;
+    border-width: medium;
+    box-shadow: 10px 10px gray;
+    box-shadow: black;
+}
+#b1{
+    background: orangered;
+}
+#b2{
+    background: palevioletred;
+}
+#b3{
+    background: yellowgreen;
+}
+#b4{
+    background: blueviolet;
+}
+#b5{
+    background: orchid;
+}
+.box p{
+	 font-size: 35px;
+    color: black;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.box p span{
+	font-size: 30px;
+	font-weight: 400;
+	color: black;
+}
+.dash_topnav{
+    background: rgba(0, 0, 0, 0.89);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.dash_topnav a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 20px;
+    display: block;
+    width: 200px;
+}
+.dash_topnav a:hover{
+    color:palevioletred;
+    font-weight: bold;
+}
+
+/* It code for the panne1 and Panel2. pannel1 used to display the panel for the view_customer and Panel2 used for manage_customer*/
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: auto;
+    padding: 20px;
+}
+#pannel h1,#Panel1 h1,#Panel2 h1{
+    position: absolute;
+    padding: 0;
+    color: orange;
+}
+/*Design for Manage_Task Module in Task module for task table*/
+#customer_table_Manage_task,#customer_table_inProgress_task,#customer_table_Done_task{
+    margin-top: 70px;
+    width: 70%;
+    border-collapse: collapse;
+}
+#th1{
+    background: gray;
+    font-size: larger;
+    font-weight: bold;
+}
+#customer_table, #td1, #th1{
+    border: 1px solid;
+}
+/*code for manage customer panel*/
+.manage_customer_container,._make_payment{
+    max-width: 500px;
+    margin: 80px;
+    padding: 20px;
+}
+.manage_customer_container label,._make_payment label{
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+}
+.manage_customer_container input,
+.manage_customer_container select,
+._make_payment input,._make_payment select{
+    width: 250px;
+    height: 10;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border-style:groove;
+}
+/*code for appointment module*/
+.appointment_request, .manage_service{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+}
+.appointment_request form{
+    width: 650px;
+    height: auto;
+    padding-top: 8%;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 12px 20px #abb289;
+    overflow: hidden;
+}
+.appointment_request label , .manage_service label{
+    position: relative;
+    padding: 20px;
+    font-family: serif;
+    font-size: 30px;
+}
+.appointment_request input, .manage_service input{
+    width: 400px;
+    height: 40;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border-style:groove;
+}
+.appointment_request #appointment_tr{
+    height: 70px;
+    text-align: center;
+    padding: 20px;
+}
+#approve_btn{
+    border-style: groove;
+    box-shadow:5px 5px gray;
+    background-color: rgb(52, 165, 42);
+    width: 150px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 8%;
+}
+#approve_btn:hover{
+    background-image: linear-gradient(to right, rgb(53, 160, 26),rgb(58, 196, 34));
+}
+.appointment_history{
+    position: absolute;
+    width: 70%;
+    top:35%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+}
+.appointment_history #appointment_history{
+    width: auto;
+    height: auto;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 12px 20px #abb289;
+    overflow: hidden;
+}
+#appointment_history_table{
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+#appointment_history_table #history_table{
+    width: 500px;
+}
+
+/* */
+.banner #name{
+    color: orange;
+    text-align: left;
+    padding-left: 1%;
+}
+.banner #payment_history{
+    margin-left: 50px;
+    height: auto;
+    width: 90%;
+}
+#customer_payment_table{
+    margin-top: 70px;
+    width: 100%;
+    border-collapse: collapse;
+}
+#th1{
+    background: gray;
+    font-size: larger;
+    font-weight: bold;
+}
+#td1, #th1{
+    border: 1px solid;
+}
+.popup{
+    background: rgba(0,0,0,0.6);
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.popup_container{
+    height: 250px;
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+.popup input{
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+}
+.sub_button{
+    background: white;
+    padding: 10px 15px;
+    color: #34495e;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+    margin-top: 25px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.sub_button:hover{
+    background: #34495e;
+    color: white;
+}
+.close{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+    cursor: pointer;
+}

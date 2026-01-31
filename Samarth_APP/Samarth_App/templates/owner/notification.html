@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'owner/head.html' %}
+    <style>
+        /* Add your CSS styles here */
+        .banner {
+            margin-left: 250px;
+            text-align: center;
+            height: 100vh;
+            margin-left: 22%;
+        }
+        #pannel, #Panel1, #Panel2 {
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: orange;
+            text-align: left;
+        }
+        .notification {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease forwards;
+            margin-bottom: 20px; /* Add spacing between notifications */
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .notification h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .notification p {
+            margin: 0;
+            color: #666;
+        }
+        .low-stock {
+            color: #FF5733;
+            font-weight: bold;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Stock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <div id="Panel1">
+            <h1>Notifications</h1>
+            {% if low_stock_products %}
+                {% for product in low_stock_products %}
+                    <div class="notification">
+                        <h2>Low Stock Alert</h2>
+                        <p>The stock quantity of <span class="product-name">{{ product.name }}</span> is <span class="low-stock">low</span>.</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="notification">
+                    <h2>No Low Stock</h2>
+                    <p>All products have sufficient stock.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

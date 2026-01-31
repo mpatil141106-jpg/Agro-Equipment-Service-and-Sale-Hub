@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    {% include 'includes/footer.html' %}
+    {% include 'includes/headerAndFooter.html' %}
+    <style>
+        .selection select
+        {
+            height: 40px;
+            width: 95%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    <title>Shree Samarth Electricals</title>
+</head>
+<body>
+
+    <div class="box">
+        <div class="container">
+        <form action="{% url 'doRegistration' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>SingUp</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="name">Full Name</label>
+                    <input type="text" placeholder="Enter Full Name" name="name" required>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your valid email" name="email" required>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" placeholder="Enter valid Mobile Number" name="mobileno" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter password" name="pass" required>
+                </div>
+                <div class="selection">
+                <label for="city">City</label>
+                <select name="city" id="city">
+                    <option value="Chinawal">Chinawal</option>
+                    <option value="Kumbharkheda">Kumbharkheda</option>
+                    <option value="Lohara">Lohara</option>
+                    <option value="Gaurkheda">Gaurkheda</option>
+                    <option value="Utakheda">Utakheda</option>
+                    <option value="Padalsa">Padalsa</option>
+                    <option value="Dasnur">Dasnur</option>
+                    <option value="Kasva">Kasva</option>
+                    <option value="Razoda">Razoda</option>
+                </select>
+                </div>
+                <div class="input-box">
+                    <label for="profile_image">Profile Image</label>
+                    <input type="file" id="profile_image" name="profile_img" accept="image/*" required>
+                </div>
+
+                <span class="gender-title">Gender</span>
+                <div class="gender-category">
+                    <input type="radio" name="gender" id="male" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="other" value="Other">
+                    <label for="other">Other</label>
+                </div>
+
+
+            </div>
+            <div class="button-container">
+                <button type="submit">SingUp</button>
+            </div>
+        </form>
+
+    </div>
+    </div>
+
+</body>
+</html>
+

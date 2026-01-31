@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'includes/footer.html' %}
+    {% include 'includes/headerAndFooter.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Shree Samarth Electricals</title>
+    <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+    <div class="box">
+    <section class="sec1">
+        <table class="center">
+            <tr>
+                <th>
+                    <h1><i class="fa-solid fa-user"></i> About_Us</h1>
+                    <h2 id="name">Mr. Ganesh Patil</h2><br>
+                    <h2><i class="fa-solid fa-phone"></i> : +91 7845346565</h2><br>
+                    <div class="box"><p class="info">  Our Company excels in submersible repair and rewinding,backed by years of expertise.We prioritize quantity,Safety, and client satisfication, offering a  range of serviceswith a focus on technical excellence. Our commitment to environmental responsibilityand continuous improvement sets apart, ensuring reliable and customer-centric solutions.</p>
+                </th>
+                <th>
+                    <img class="img1" src="{% static 'images/farjana_drawing_academy__20210718_11.png' %}" height="300" width="300">
+                </th>
+            </tr>
+        </table>
+    </section>
+    </div>
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

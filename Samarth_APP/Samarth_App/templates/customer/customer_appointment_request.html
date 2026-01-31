@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'customer/customer_head.html' %}
+    <style>
+         .banner{
+    margin-left: 250px;
+    text-align: center;
+    height: 100vh;
+    margin-left: 22%;
+}
+#pannel,#Panel1,#Panel2{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+h1 {
+
+    font-size: 30px;
+    font-weight:20;
+    margin-bottom: 20px;
+    color: orange;
+    text-align:left;
+}
+        select{
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .appointment_request, .manage_service{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+}
+.appointment_request form{
+    width: 650px;
+    height: auto;
+    padding-top: 8%;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 12px 20px #abb289;
+    overflow: hidden;
+}
+.appointment_request label , .manage_service label{
+    position: relative;
+    padding: 20px;
+    font-family: serif;
+    font-size: 30px;
+}
+.appointment_request input, .manage_service input{
+    width: 400px;
+    height: 40;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    border-style:groove;
+}
+.appointment_request #appointment_tr{
+    height: 70px;
+    text-align: center;
+    padding: 20px;
+}
+#approve_btn{
+    border-style: groove;
+    box-shadow:5px 5px gray;
+    background-color: rgb(52, 165, 42);
+    width: 150px;
+    height: 40px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 8%;
+}
+#approve_btn:hover{
+    background-image: linear-gradient(to right, rgb(53, 160, 26),rgb(58, 196, 34));
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Done Task</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboardMainContainer">
+    </div>
+    <div class="banner">
+        <h1>Appointment</h1>
+        <div class="appointment_request">
+         <form action="{% url 'make_appointment' %}" method="post">
+             {% csrf_token %}
+            <table>
+                <tr id="appointment_tr">
+                    <td id="appointment">
+                        <label for="reason">Work: </label>
+                    </td>
+                    <td id="appointment">
+                        <select id="workSelect" name="work" readonly>
+                            <option value="">--Choose Service--</option>
+                                {% for work in all %}
+                                    <option value="{{ work.work }}">{{ work.work }}</option>
+                                {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr id="appointment_tr">
+                    <td id="appointment">
+                        <label for="reason">Work Type: </label>
+                    </td>
+                    <td id="appointment">
+                        <select id="typeSelect" name="type" readonly>
+                            <option value="">--Choose Type--</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="appointment_tr">
+                    <td id="appointment">
+                        <label for="type">Date: </label>
+                    </td>
+                    <td id="appointment">
+                        <input type="date" id="input-box" name="date">
+                    </td>
+                </tr>
+                <tr id="appointment_tr">
+                    <td id="appointment">
+                        <label for="time">Time: </label>
+                    </td>
+                    <td id="appointment">
+                        <input type="text" id="input-box" name="time" placeholder="Enter the Time">
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" id="approve_btn">
+        </form>
+    </div>
+        </div>
+<script>
+    document.getElementById('workSelect').addEventListener('change', function()
+        {
+            var selectedWork = this.value;
+            var typeSelect = document.getElementById('typeSelect');
+
+            fetch(`/get_work_types?work=${selectedWork}`)
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing options
+                typeSelect.innerHTML = '';
+
+                // Populate with new options
+                data.forEach(type => {
+                    var option = document.createElement('option');
+                    option.text = type;
+                    option.value = type;
+                    typeSelect.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+</script>
+</body>
+</html>
